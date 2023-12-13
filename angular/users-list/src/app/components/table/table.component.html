@@ -1,0 +1,43 @@
+<table class="table" *ngIf="vm$ | async as vm; else loading">
+  <thead>
+    <tr>
+      <th (click)="sortUsers('firstname')">
+        First name
+        {{
+          vm.sortColumn === 'firstname'
+            ? (vm.sortDirection | sortDirection)
+            : ''
+        }}
+      </th>
+      <th (click)="sortUsers('surname')">
+        Surname
+        {{
+          vm.sortColumn === 'surname' ? (vm.sortDirection | sortDirection) : ''
+        }}
+      </th>
+      <th (click)="sortUsers('username')">
+        Username
+        {{
+          vm.sortColumn === 'username' ? (vm.sortDirection | sortDirection) : ''
+        }}
+      </th>
+      <th (click)="sortUsers('email')">
+        Email
+        {{
+          vm.sortColumn === 'email' ? (vm.sortDirection | sortDirection) : ''
+        }}
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let user of vm.users; trackBy: trackBy">
+      <td>{{ user.name | firstname }}</td>
+      <td>{{ user.name | surname }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #loading>Loading users...</ng-template>

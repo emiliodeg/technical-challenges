@@ -32,6 +32,13 @@ export class TableComponent {
     }))
   );
 
+  columns = new Map([
+    ['firstname', 'First name'],
+    ['surname', 'Last name'],
+    ['username', 'username'],
+    ['email', 'email'],
+  ]);
+
   constructor(private api: ApiService, private store: Store) {}
 
   sortUsers(column: string): void {

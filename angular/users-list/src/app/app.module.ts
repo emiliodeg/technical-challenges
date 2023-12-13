@@ -8,6 +8,7 @@ import { TableComponent } from './components/table/table.component';
 import { usersReducer } from './reducers/users.reducer';
 import { CommonModule } from '@angular/common';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [AppComponent, TableComponent, SearchBoxComponent],
@@ -15,6 +16,7 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
     BrowserModule,
     CommonModule,
     HttpClientModule,
+    PipesModule,
     StoreModule.forRoot(
       {
         users: usersReducer,
